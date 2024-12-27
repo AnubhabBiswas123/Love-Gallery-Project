@@ -1,0 +1,79 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.wrapper
+{
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.container
+{
+  height: 100%;
+  max-width: 1200px;
+  margin:0 auto; /*Matlab content jo hai vo middle mai aagya*/
+  padding: 20px;
+}
+h1{
+  margin: 20px 0;
+  text-align: center; /*heading ko center mai lane k liye*/
+  margin-bottom: 20px;
+  font-size: 3rem;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.gallery
+{
+  display: flex; /*normally main axis k respect mai horizontally place hojayega*/
+  flex-wrap: wrap;/* sab elements niche one by one place hojayenge agar nhi lagayenge toh because of flex property single line mai sab aajyega agal bagal mai*/
+  justify-content: space-between;
+}
+.card
+{
+  width:32%; /*explanation written in copy*/
+  position: relative; /*because image caption image k upar overlap karega and for that we need position: absolute which is relative to the non static element*/
+  overflow: hidden; /*overflown content ko hide kardeta hai*/
+  border-radius: 10px;/* images k corners ko thoda bend karne k liye*/
+  margin-bottom: 20px;
+  height: 425px;
+}
+.card img
+{
+  height:100%; /*card ka 100% height*/
+  width: 100%; /*card ka 100% width*/
+  filter: grayscale(100%); /*gray colour ka filter lane k liye*/
+  box-shadow: 0 0 20px #333; /*shadow k liye*/
+  object-fit: cover;
+}
+.card:hover
+{
+  transform: scale(1.03); /* jaise hi hover karte hai card scale karta hai*/
+  transition: 0.5s; /*0.5 seconds baad scale hoga*/
+  filter: drop-shadow(0 0 10px #333); /*shadow effect lane k liye*/
+}
+.card:hover img
+{
+  filter: grayscale(0%); /*jab image pe hover karega toh uska colour wapas aajayega*/
+}
+.card figcaption
+{
+  position: absolute; /*card se overlap kar rha hai*/
+  bottom: 0;
+  left: 0;
+  width: 100%;/*card ka jo width hai uska 100 percent*/
+  height:10%; /*card ka jo width hai uska 20 percent*/
+  
+  font-size: 16px;
+  font-weight: 500px;
+  color: #fff;
+  border-radius: 0 0 10px 10px;
+  background: linear-gradient(0deg,rgba(0,0,0,0.5) 0%, rgba(255,255,255,0)); /*text k side mai thoda gradient add karne k liye*/
+  transition: 0.3s;/*utne time baad ayega*/
+  opacity: 0; /*initially transparent karne k liye dikhega hi nhi*/
+}
+.card:hover figcaption
+{
+  opacity: 1;/*jaise hi hover karega tab hi dikhega*/
+  transform: scale(1.005); /*jaise hi hover karega tabhi figcaption scale karega*/
+}
